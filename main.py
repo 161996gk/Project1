@@ -1,34 +1,35 @@
-print "Let's get started!"
-spy_name = raw_input("Provide your name here : ")
-if len(spy_name) > 0 :
-    print "Alright "+ spy_name + " i'd like to know more about you before proceeding further. "
-    spy_salutation = raw_input("Provide your salutation whether Mr. or Ms. : ")
-    spy_name = spy_salutation + "." + spy_name  # the old value get's overwritten here in spy_name
-    print "Welcome " + spy_name + ".Glad to have you back here "
+# import statements.
+from spy_details import spy
+from start_chat import start_chat
 
-# Now inputting of the spy age.
-    spy_age = int(raw_input("Provide your age please : "))
-  #  print type(spy_age)     #type returns the datatype of the variable.
-    if spy_age > 12 and spy_age < 60:
-        print "You are eligible for being a Spy."
-        # Now check for the Spy rating.
+print "Let's get started!!!"
+question = "Do you want to continue as " + spy['salutation'] + spy['name'] + "(Y/N) ? "
+existing = raw_input(question)
 
-        spy_rating = float(raw_input("Provide the spy rating : "))
-        if spy_rating <= 5.0 and spy_rating > 4.7:
-            print "The Spy is doing an Excellent job. Keep it up. Proud to have you on board."
-        elif spy_rating < 4.7 and spy_rating > 3.7:
-            print "The Spy is doing a Good job. Try to enhance your work."
-        elif spy_rating < 3.7 and spy_rating > 2.5:
-            print "The Spy is doing an Average job. Work a little harder."
-        else:
-            print "The Spy is not doing a good job. Please work very very Hard."
-        #Now check the online info of the spy.
-        spy_online = bool(raw_input("Tell whether the spy is Online or not : "))
+# validating users input
+if existing.upper() == "Y":
+    spy_name = spy['salutation'] + " " + spy['name']
+    # default user
+    start_chat(spy['name'],spy['age'],spy['rating'],spy['is_online'])
+
+elif existing.upper() == "N":
+    # new user code here
+    spy['name'] = raw_input("What is your name SPY: ")  # defining variable.
+
+    if len(spy['name']) > 0:
+        spy['salutation'] = raw_input("What should we call you(Mr. or Ms.): ")
+        spy['age'] = int(raw_input("Please enter your age : "))           # typecasting(converting string to int)
+
+        spy['name'] = spy['salutation'] + "" + spy['name']  # concatenation of name and salutation
+        # assignment operator parsing is from r to l.
+
+        spy['rating'] = float(raw_input("What is your spy rating?"))  # typecasting(int to float)
+        spy_is_online = True
+
+        # starting chat application
+        start_chat(spy['name'], spy['age'], spy['rating'], spy['is_online'])
 
     else:
-        print "Sorry!! You are not eligible for being a Spy. "
-
+        print "Invalid name. Please try again."
 else:
-    print "Name cannot be empty. Re-enter your name please."
-
-
+    print "Wrong choice. Try again"
