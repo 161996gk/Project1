@@ -4,7 +4,7 @@
 current_status_message = None
 
 # list to store status messages.
-STATUS_MESSAGES = ["Spy mode ON", "No message, only call"]
+STATUS_MESSAGES = ["Spy mode ON", "Busy, Call If Urgent"]
 
 # lists to store users friends information.
 friends = []
