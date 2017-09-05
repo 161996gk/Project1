@@ -2,6 +2,7 @@ from globals import friends
 
 def select_friend():
     counter = 1
+    #Display All friends
     for friend in friends:
         print str(counter) + ". ",friend.displayDetails()
         counter = counter + 1

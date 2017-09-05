@@ -13,6 +13,7 @@ friends = []
 #Spy Class
 class Spy:
     def __init__(self,salutation,name,age,rating,isonline):
+        #Assigning Values
         self.Name=salutation+"."+name
         self.Age=age
         self.Rating=rating
@@ -32,6 +33,7 @@ class Spy:
 #Chat class
 class Chat:
     def __init__(self,msgImage,timestamp):
+        #Assigning Values
         self.Message=msgImage
         self.Timestamp=timestamp
     def displayMessage(self):

@@ -5,7 +5,8 @@ from globals import friends,Spy
 import re
 def add_friend():
     new_friend =Spy(" "," ",0,0.0,False)
-    tempcheck=True
+    tempcheck=True#temporary variable
+    #Validation Using Regex
     patternsalutation='^Mr|Ms$'
     patternname='^[A-Za-z\s]+$'
     patternage='^[0-9]+$'
@@ -35,7 +36,7 @@ def add_friend():
                 new_friend.Age=int(new_friend.Age)
             else:
                 print "Enter Again!!!!"
-        tempcheck=True
+        tempcheck=True #temporary variable
         while tempcheck:
             new_friend.Rating = raw_input("Spy rating?")
             if (re.match(patternrating, new_friend.Rating) != None):

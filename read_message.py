@@ -8,7 +8,7 @@ def read_message():
     #Checking if Friend List is not empty
     if friend_choice!=(-1):
         pattern='^[A-Za-z][0-9A-Za-z\s]+\.jpg$'
-        a=True
+        a=True #temporary variable
         #Average Words
         friends[friend_choice].calcAverageWords()
         #prepare the  message

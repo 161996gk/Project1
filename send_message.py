@@ -8,9 +8,9 @@ def send_message():
     friend_choice = select_friend()
     #checking If Friend's List Is not Empty
     if friend_choice!=-1:
-        pattern='^[A-Za-z][0-9A-Za-z\s]+\.jpg$'
+        pattern='^[A-Za-z][0-9A-Za-z\s]+\.jpg$'#Regex for correct name pattern for image
         patternsave='^SOS|SAVE ME|IN DANGER|HELP$'
-        a=True
+        a=True#Temporary Variable
         #prepare the  message
         while a:
             original_image = raw_input("Provide the name of the image to hide the message: ")
@@ -25,6 +25,7 @@ def send_message():
                 a = False
         text = raw_input("Enter your message here: ")
         if(len(text)>100):
+            #remove friend he/she types more 100 words
             print "Large Message Input!!!!"
             print "You are no more a Spy!!!!"
             friends.remove(friends[friend_choice])
@@ -37,7 +38,7 @@ def send_message():
                 friends[friend_choice].chat.append(chatobject)
                 #Successful message
                 print "Your message encrpyted successfully"
-                # Handling Situation For SOS
+                # Handling Situation For SOS|Danger
                 if (re.match(patternsave, text.upper()) != None):
                     print "I got your location!!!!I'll be there soon!"
             except IOError:

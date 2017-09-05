@@ -3,6 +3,7 @@ def add_status():
     default = raw_input("Do you want to select from older status (y/n)? ")
 
     if default.upper() == "N":
+        #Setting new Status Message
         new_status_message = raw_input("What status message do you want to set? ")
         if len(new_status_message)>0:
             updated_status_message = new_status_message
@@ -12,6 +13,7 @@ def add_status():
 
     elif default.upper() == "Y":
         item_position = 1
+        #selecting from list(Status)
         for message in STATUS_MESSAGES:
             print str(item_position) +". "+ str(message)
             item_position = item_position + 1

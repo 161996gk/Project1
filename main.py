@@ -15,9 +15,10 @@ if existing.upper() == "Y":
 
 elif existing.upper() == "N":
     # new user code here
-    wholecheck=True
+    wholecheck=True#temporary variable
     while(wholecheck):
-        tempcheck=True
+        tempcheck=True#temporary variable
+        # Validation Using Regex
         patternsalutation='^Mr|Mrs$'
         patternname='^[A-Za-z\s]+$'
         patternage='^[0-9]+$'
@@ -55,7 +56,7 @@ elif existing.upper() == "N":
                 spy.Rating=float(spy.Rating)
             else:
                 print "Enter Again!!!!"
-        # validating input
+        # Checking If Spy is eligible
         if spy.Rating <= 5.0 and spy.Age > 12 and spy.Age < 60:
             start_chat(spy.Name,spy.Age,spy.Rating,spy.SpyOnline)
             wholecheck=False
