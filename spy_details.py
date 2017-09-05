@@ -1,9 +1,3 @@
 # default user details
-
-spy = {
-    'name': "Holmes",
-    'salutation': "Mr.",
-    'age': 21,
-    'rating': 4.7,
-    'is_online': True
-}
+from globals import Spy
+spy = Spy("Mr","Holmes",25,4.7,True)

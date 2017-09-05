@@ -1,24 +1,50 @@
 # import statements.
-from globals import friends
+from globals import friends,Spy
 
 # add new friends.
-
+import re
 def add_friend():
-    new_friend = {
-        'name': '',
-        'salutation': '.',
-        'age': 0,
-        'rating': 0.0,
-        'is_online': False
-    }
-    new_friend['salutation'] = raw_input("Mr. or Ms.? : ")
-    new_friend['name'] = raw_input("Please add your friend's name: ")
-    # concatenation.
-    new_friend['name'] = new_friend['salutation'] + "."+new_friend['name']
-    new_friend['age'] = int(raw_input("Age?"))
-    new_friend['rating'] = float(raw_input("Spy rating?"))
+    new_friend =Spy(" "," ",0,0.0,False)
+    tempcheck=True
+    patternsalutation='^Mr|Ms$'
+    patternname='^[A-Za-z\s]+$'
+    patternage='^[0-9]+$'
+    patternrating='^[0-9]+\.[0-9]$'
+    #Validating Each Values Using Regular Expression
+    while tempcheck:
+        salutation = raw_input("Mr. or Ms.? : ")
+        if (re.match(patternsalutation, salutation) != None):
+            tempcheck = False
+        else:
+            print "Enter Again!!!!"
+    tempcheck=True
+    while tempcheck:
+        new_friend.Name=raw_input("Enter Name: ")
+        if(re.match(patternname,new_friend.Name)!=None):
+            tempcheck=False
+        else:
+            print "Enter Again!!!!"
+
+        # concatenation.
+        new_friend.Name = salutation + "."+new_friend.Name
+        tempcheck=True
+        while tempcheck:
+            new_friend.Age = raw_input("Age?")
+            if (re.match(patternage, new_friend.Age) != None):
+                tempcheck = False
+                new_friend.Age=int(new_friend.Age)
+            else:
+                print "Enter Again!!!!"
+        tempcheck=True
+        while tempcheck:
+            new_friend.Rating = raw_input("Spy rating?")
+            if (re.match(patternrating, new_friend.Rating) != None):
+                tempcheck = False
+                new_friend.Rating=float(new_friend.Rating)
+            else:
+                print "Enter Again!!!!"
     # validating input
-    if len(new_friend['name']) > 0 and new_friend['age'] > 12 and new_friend['age'] < 60:
+    if new_friend.Rating <= 5.0 and new_friend.Age > 12 and new_friend.Age < 60:
         # add_friend
         friends.append(new_friend)
         print "Friend Added"
