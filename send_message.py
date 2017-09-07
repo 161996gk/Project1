@@ -8,7 +8,7 @@ def send_message():
     friend_choice = select_friend()
     #checking If Friend's List Is not Empty
     if friend_choice!=-1:
-        pattern='^[A-Za-z][0-9A-Za-z\s]+\.jpg$'#Regex for correct name pattern for image
+        pattern='^[A-Za-z][0-9A-Za-z\s]*\.jpg$'#Regex for correct name pattern for image
         patternsave='^SOS|SAVE ME|IN DANGER|HELP$'
         a=True#Temporary Variable
         #prepare the  message
@@ -42,6 +42,6 @@ def send_message():
                 if (re.match(patternsave, text.upper()) != None):
                     print "I got your location!!!!I'll be there soon!"
             except IOError:
-                print "Image Does Not Exist!!!!"
+                print "Image %s Does Not Exist!!!!" %(original_image)
     else:
         print "Empty Friend's List!!!!"

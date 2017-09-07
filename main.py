@@ -20,7 +20,7 @@ elif existing.upper() == "N":
         tempcheck=True#temporary variable
         # Validation Using Regex
         patternsalutation='^Mr|Mrs$'
-        patternname='^[A-Za-z\s]+$'
+        patternname='^[A-Za-z][A-Za-z\s]+$'
         patternage='^[0-9]+$'
         patternrating='^[0-9]+\.[0-9]$'
         # Validating Each Values Using Regular Expression
@@ -37,9 +37,8 @@ elif existing.upper() == "N":
                 tempcheck=False
             else:
                 print "Enter Again!!!!"
-
-            # concatenation.
-            spy.Name = salutation + "."+spy.Name
+        # concatenation.
+        spy.Name = salutation + "."+spy.Name
         tempcheck=True
         while tempcheck:
              spy.Age = raw_input("Age?")

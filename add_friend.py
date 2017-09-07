@@ -8,7 +8,7 @@ def add_friend():
     tempcheck=True#temporary variable
     #Validation Using Regex
     patternsalutation='^Mr|Ms$'
-    patternname='^[A-Za-z\s]+$'
+    patternname='^[A-Za-z][A-Za-z\s]+$'
     patternage='^[0-9]+$'
     patternrating='^[0-9]+\.[0-9]$'
     #Validating Each Values Using Regular Expression
@@ -26,24 +26,24 @@ def add_friend():
         else:
             print "Enter Again!!!!"
 
-        # concatenation.
-        new_friend.Name = salutation + "."+new_friend.Name
-        tempcheck=True
-        while tempcheck:
-            new_friend.Age = raw_input("Age?")
-            if (re.match(patternage, new_friend.Age) != None):
-                tempcheck = False
-                new_friend.Age=int(new_friend.Age)
-            else:
-                print "Enter Again!!!!"
-        tempcheck=True #temporary variable
-        while tempcheck:
-            new_friend.Rating = raw_input("Spy rating?")
-            if (re.match(patternrating, new_friend.Rating) != None):
-                tempcheck = False
-                new_friend.Rating=float(new_friend.Rating)
-            else:
-                print "Enter Again!!!!"
+    # concatenation.
+    new_friend.Name = salutation + "."+new_friend.Name
+    tempcheck=True
+    while tempcheck:
+        new_friend.Age = raw_input("Age?")
+        if (re.match(patternage, new_friend.Age) != None):
+            tempcheck = False
+            new_friend.Age=int(new_friend.Age)
+        else:
+            print "Enter Again!!!!"
+    tempcheck=True #temporary variable
+    while tempcheck:
+        new_friend.Rating = raw_input("Spy rating?")
+        if (re.match(patternrating, new_friend.Rating) != None):
+            tempcheck = False
+            new_friend.Rating=float(new_friend.Rating)
+        else:
+            print "Enter Again!!!!"
     # validating input
     if new_friend.Rating <= 5.0 and new_friend.Age > 12 and new_friend.Age < 60:
         # add_friend
