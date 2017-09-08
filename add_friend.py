@@ -1,6 +1,6 @@
 # import statements.
 from globals import friends,Spy
-
+from termcolor import colored
 # add new friends.
 import re
 def add_friend():
@@ -17,14 +17,14 @@ def add_friend():
         if (re.match(patternsalutation, salutation) != None):
             tempcheck = False
         else:
-            print "Enter Again!!!!"
+            print colored("Enter Again!!!!",'red')
     tempcheck=True
     while tempcheck:
         new_friend.Name=raw_input("Enter Name: ")
         if(re.match(patternname,new_friend.Name)!=None):
             tempcheck=False
         else:
-            print "Enter Again!!!!"
+            print colored("Enter Again!!!!",'red')
 
     # concatenation.
     new_friend.Name = salutation + "."+new_friend.Name
@@ -35,7 +35,7 @@ def add_friend():
             tempcheck = False
             new_friend.Age=int(new_friend.Age)
         else:
-            print "Enter Again!!!!"
+            print colored("Enter Again!!!!",'red')
     tempcheck=True #temporary variable
     while tempcheck:
         new_friend.Rating = raw_input("Spy rating?")
@@ -43,13 +43,13 @@ def add_friend():
             tempcheck = False
             new_friend.Rating=float(new_friend.Rating)
         else:
-            print "Enter Again!!!!"
+            print colored("Enter Again!!!!",'red')
     # validating input
     if new_friend.Rating <= 5.0 and new_friend.Age > 12 and new_friend.Age < 60:
         # add_friend
         friends.append(new_friend)
-        print "Friend Added"
+        print colored("Friend Added",'green')
     else:
-        print "Sorry invalid entry!!!!"
+        print colored("Sorry invalid entry!!!!",'red')
     # returning number of friends
     return len(friends)

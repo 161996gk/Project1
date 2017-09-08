@@ -1,6 +1,7 @@
 # global variables and constants.
 from termcolor import colored
 from steganography.steganography import Steganography
+#Red Color=> Error, Green Color=>Success Message
 # current status message is initialized to None.
 current_status_message = None
 

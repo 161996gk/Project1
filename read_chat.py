@@ -22,6 +22,6 @@ def read_chat():
                 chatobject.displayMessage()
                 chatobject.Message=tempstr
         else:
-            print "No Chat History!!!!"
+            print colored("No Chat History!!!!",'red')
     else:
-        print "Empty Friend's List!!!!"
+        print colored("Empty Friend's List!!!!",'red')

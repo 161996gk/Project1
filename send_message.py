@@ -1,6 +1,7 @@
 from select_friend import select_friend
 from steganography.steganography import Steganography
 from globals import friends,Chat
+from termcolor import colored
 from datetime import datetime
 import re
 def send_message():
@@ -17,7 +18,7 @@ def send_message():
             if(re.match(pattern,original_image)!=None):
                 a=False
             else:
-                print "Enter Again!!!!"
+                print colored("Enter Again!!!!",'red')
         a=True
         while a:
             output_image = raw_input("Provide the name of the output image : ")
@@ -26,8 +27,8 @@ def send_message():
         text = raw_input("Enter your message here: ")
         if(len(text)>100):
             #remove friend he/she types more 100 words
-            print "Large Message Input!!!!"
-            print "You are no more a Spy!!!!"
+            print colored("Large Message Input!!!!",'red')
+            print colored("You are no more a Spy!!!!",'red')
             friends.remove(friends[friend_choice])
         else:
             #Handling Exception If Image Does Not Exist
@@ -37,11 +38,11 @@ def send_message():
                 chatobject=Chat(output_image,datetime.now())
                 friends[friend_choice].chat.append(chatobject)
                 #Successful message
-                print "Your message encrpyted successfully"
+                print colored("Your message encrpyted successfully",'green')
                 # Handling Situation For SOS|Danger
                 if (re.match(patternsave, text.upper()) != None):
-                    print "I got your location!!!!I'll be there soon!"
+                    print colored("I got your location!!!!I'll be there soon!",'green')
             except IOError:
-                print "Image %s Does Not Exist!!!!" %(original_image)
+                print colored("Image %s Does Not Exist!!!!" %(original_image),'red')
     else:
-        print "Empty Friend's List!!!!"
+        print colored("Empty Friend's List!!!!",'red')

@@ -2,6 +2,7 @@
 from spy_details import spy
 from start_chat import start_chat
 from globals import Spy
+from termcolor import colored
 import re
 
 print "Let's get started!!!"
@@ -29,14 +30,14 @@ elif existing.upper() == "N":
             if (re.match(patternsalutation, salutation) != None):
                 tempcheck = False
             else:
-                print "Enter Again!!!!"
+                print colored("Enter Again!!!!",'red')
         tempcheck=True
         while tempcheck:
             spy.Name=raw_input("Enter Name: ")
             if(re.match(patternname,spy.Name)!=None):
                 tempcheck=False
             else:
-                print "Enter Again!!!!"
+                print colored("Enter Again!!!!",'red')
         # concatenation.
         spy.Name = salutation + "."+spy.Name
         tempcheck=True
@@ -46,7 +47,7 @@ elif existing.upper() == "N":
                  tempcheck = False
                  spy.Age=int(spy.Age)
              else:
-                 print "Enter Again!!!!"
+                 print colored("Enter Again!!!!", 'red')
         tempcheck=True
         while tempcheck:
             spy.Rating = raw_input("Spy rating?")
@@ -54,12 +55,12 @@ elif existing.upper() == "N":
                 tempcheck = False
                 spy.Rating=float(spy.Rating)
             else:
-                print "Enter Again!!!!"
+                print colored("Enter Again!!!!",'red')
         # Checking If Spy is eligible
         if spy.Rating <= 5.0 and spy.Age > 12 and spy.Age < 60:
             start_chat(spy.Name,spy.Age,spy.Rating,spy.SpyOnline)
             wholecheck=False
         else:
-            print "Invalid Entry!!!!Start From Scratch."
+            print colored("Invalid Entry!!!!Start From Scratch.",'red')
 else:
-    print "Wrong choice. Try again"
+    print colored("Wrong choice. Try again",'red')

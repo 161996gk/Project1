@@ -1,5 +1,6 @@
 from select_friend import select_friend
 from globals import friends
+from termcolor import colored
 from steganography.steganography import Steganography
 import re
 def read_message():
@@ -18,15 +19,15 @@ def read_message():
                 if(re.match(pattern,output_image)!=None):
                     a=False
                 else:
-                    print "Enter Again!!!!"
+                    print colored("Enter Again!!!!",'red')
             except IOError:
-                print "Enter Image Name That Exists!!!!"
+                print colored("Enter Image Name That Exists!!!!",'red')
         try:
             #Decrypt the message
             text = Steganography.decode(output_image)
             print "Message:",text
         except TypeError:
             #Blank Image Case i.e. No Decrypted Message in Image
-            print "Image does not have any message!!!!"
+            print colored("Image does not have any message!!!!",'red')
     else:
-        print "Empty Friend's List!!!!"
+        print colored("Empty Friend's List!!!!",'red')

@@ -5,8 +5,7 @@ from add_status import add_status
 from add_friend import add_friend
 from globals import current_status_message
 from  read_chat import read_chat
-
-
+from termcolor import colored
 # start_chat() function definition
 def start_chat(name, age, rating, status):
 
@@ -16,14 +15,14 @@ def start_chat(name, age, rating, status):
     if not (age > 12 and age < 50):
         # invalid age.
         error_message = "Invalid age. Provide correct details."
-        print error_message
+        print colored(error_message,'red')
     else:
         welcome_message = "Authentication complete. Welcome\n " \
                           "Name : " + name + "\n" \
                           "Age: " + str(age) + "\n" \
                           "Rating: " + str(rating) + "\n" \
                           "You are awesome"
-        print welcome_message
+        print colored(welcome_message,'green')
 
         # displaying menu for user.
 
@@ -43,11 +42,11 @@ def start_chat(name, age, rating, status):
         if result == 1:
             # action
             current_status_message = add_status()
-            print"Your Current status is: "+current_status_message
+            print colored("Your Current status is: "+current_status_message,'green')
         elif result == 2:
             # action
             no_of_friends = add_friend()
-            print "You have %d friends " % (no_of_friends)
+            print colored("You have %d friends " % (no_of_friends),'green')
         elif(result ==3):
             send_message()
         elif(result ==4):
@@ -58,4 +57,4 @@ def start_chat(name, age, rating, status):
             # close application
             show_menu = False
         else:
-            print "Wrong choice. Try again."
+            print colored("Wrong choice. Try again.",'red')
