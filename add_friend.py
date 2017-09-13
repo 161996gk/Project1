@@ -1,6 +1,7 @@
 # import statements.
 from globals import friends,Spy
 from termcolor import colored
+from spy_details import spy
 # add new friends.
 import re
 def add_friend():
@@ -44,8 +45,11 @@ def add_friend():
             new_friend.Rating=float(new_friend.Rating)
         else:
             print colored("Enter Again!!!!",'red')
-    # validating input
-    if new_friend.Rating <= 5.0 and new_friend.Age > 12 and new_friend.Age < 50:
+    # validating input:: AGE and RATING,i.e.,
+    #Age b/w 12 and 50
+    #Rating b/w 0.0 to 5.0
+    #Friends Rating must be greater than or equal to User Rating
+    if new_friend.Rating <= 5.0 and new_friend.Age > 12 and new_friend.Age < 50 and new_friend.Rating>=spy.Rating:
         # add_friend
         friends.append(new_friend)
         print colored("Friend Added",'green')
