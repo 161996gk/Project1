@@ -14,14 +14,11 @@ def read_message():
         friends[friend_choice].calcAverageWords()
         #prepare the  message
         while a:
-            try:
                 output_image = raw_input("Provide the name of the image to be decrypted: ")
                 if(re.match(pattern,output_image)!=None):
                     a=False
                 else:
                     print colored("Enter Again!!!!",'red')
-            except IOError:
-                print colored("Enter Image Name That Exists!!!!",'red')
         try:
             #Decrypt the message
             text = Steganography.decode(output_image)
@@ -29,5 +26,7 @@ def read_message():
         except TypeError:
             #Blank Image Case i.e. No Decrypted Message in Image
             print colored("Image does not have any message!!!!",'red')
+        except IOError:
+            print colored("Image Does Not Exists!!!!", 'red')
     else:
         print colored("Empty Friend's List!!!!",'red')

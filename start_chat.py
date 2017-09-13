@@ -17,21 +17,26 @@ def start_chat(name, age, rating, status):
         error_message = "Invalid age. Provide correct details."
         print colored(error_message,'red')
     else:
-        welcome_message = "Authentication complete. Welcome\n " \
+        welcome_message = "Authentication complete. Welcome\n" \
                           "Name : " + name + "\n" \
                           "Age: " + str(age) + "\n" \
-                          "Rating: " + str(rating) + "\n" \
-                          "You are awesome"
+                          "Rating: " + str(rating) + "\n"
+        if rating>4.0:
+            welcome_message=welcome_message+"You are awesome"
+        elif rating>3.0:
+            welcome_message=welcome_message+"Going Good"
+        else:
+            welcome_message=welcome_message+"Need Lots of Efforts"
         print colored(welcome_message,'green')
 
         # displaying menu for user.
 
     show_menu = True
     while show_menu:
-        menu_choices = "What do you want to do ? \n " \
+        menu_choices = "What do you want to do ? \n" \
                        "1.Add status \n" \
-                       "2.Add a friend \n " \
-                       "3.Send a secret message \n " \
+                       "2.Add a friend \n" \
+                       "3.Send a secret message \n" \
                        "4.Read a secret message \n" \
                        "5.Read chats \n" \
                        "6.Close Application \n"

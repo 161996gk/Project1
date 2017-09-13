@@ -45,7 +45,7 @@ def add_friend():
         else:
             print colored("Enter Again!!!!",'red')
     # validating input
-    if new_friend.Rating <= 5.0 and new_friend.Age > 12 and new_friend.Age < 60:
+    if new_friend.Rating <= 5.0 and new_friend.Age > 12 and new_friend.Age < 50:
         # add_friend
         friends.append(new_friend)
         print colored("Friend Added",'green')
