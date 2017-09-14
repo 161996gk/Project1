@@ -25,7 +25,7 @@ while whole:
         while(wholecheck):
             tempcheck=True#temporary variable
             # Validation Using Regex
-            patternsalutation='^Mr|Mrs$'
+            patternsalutation='^Mr|Ms$'
             patternname='^[A-Za-z][A-Za-z\s]+$'
             patternage='^[0-9]+$'
             patternrating='^[0-9]+\.[0-9]$'
